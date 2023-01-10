@@ -3,11 +3,12 @@ import socket
 host = "example.com"
 start_port = 50
 end_port = 100
+timeout = 1
 
 for port in range(start_port, end_port+1):
     print(f"Checking port {port}.")
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.settimeout(1)
+    sock.settimeout(timeout)
     result = sock.connect_ex((host, port))
     if result == 0:
         print(f"🪟 Port {port} is open.")
