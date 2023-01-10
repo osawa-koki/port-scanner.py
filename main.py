@@ -7,7 +7,7 @@ end_port = 100
 for port in range(start_port, end_port+1):
     print(f"Checking port {port}.")
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.settimeout(5)
+    sock.settimeout(1)
     result = sock.connect_ex((host, port))
     if result == 0:
         print(f"🪟 Port {port} is open.")
